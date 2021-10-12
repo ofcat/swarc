@@ -11,9 +11,15 @@ public class Date {
         this.y = y;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%02d.%02d.%4d", getD(), getM(), getY());
+    }
+
     public int getD() {
         return d;
     }
+
 
     public void setD(int d) {
         this.d = d;
