@@ -13,31 +13,11 @@ public class Date {
 
     @Override
     public String toString() {
-        return String.format("%02d.%02d.%4d", getD(), getM(), getY());
-    }
-
-    public int getD() {
-        return d;
+        return String.format("%02d.%02d.%4d", d, m, y);
     }
 
 
-    public void setD(int d) {
-        this.d = d;
-    }
-
-    public int getM() {
-        return m;
-    }
-
-    public void setM(int m) {
-        this.m = m;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
+    public int makeInt() {
+        return Integer.parseInt(String.format("%4d%02d%02d", y, m, d));
     }
 }

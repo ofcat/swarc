@@ -5,19 +5,21 @@ import Task.*;
 import java.util.List;
 
 public interface TaskInterface {
-    public List<Task> filter();
 
-    public void delete(int ID);
 
-    public boolean insert(Task tasks);
+    List<Task> filter();
 
-    public void updatePriority(int ID, Priority priority);
+    void delete(int index);
 
-    public void updateCategory(int ID, Category cat);
+    boolean insert(Task tasks);
 
-    public void updateDate(int ID, Date date);
+    void updatePriority(int index, Priority priority);
 
-    public List<Task> allTasks();
+    void updateCategory(int index, Category cat);
+
+    void updateDate(int index, Date date);
+
+    List<Task> allTasks();
 
 
 }

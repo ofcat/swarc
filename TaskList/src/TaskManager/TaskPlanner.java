@@ -1,26 +1,38 @@
 package TaskManager;
 
 import Task.*;
+import Utility.Matcher;
 
 import java.util.LinkedList;
 import java.util.List;
 
+//dont import util*, it wil clash with my Date class
+
 public class TaskPlanner implements TaskInterface {
 
-    private List<Task> tasks = new LinkedList<Task>();
+    private List<Task> tasks = new LinkedList<>();
+    Matcher<Task> taskMatcher;
 
 
     @Override
     public List<Task> filter() {
+        LinkedList<Task> filtered = new LinkedList<>();
 
-        return null;
+        for (Task t : tasks) {
+            if (taskMatcher.matches(t))
+                filtered.add(t);
+        }
+        return filtered;
+    }
+
+    public void setTaskFilter(Matcher<Task> filter) {
+        this.taskMatcher = filter;
     }
 
     @Override
-    public void delete(int ID) { //doesnt work
-        tasks.remove(ID);
+    public void delete(int index) { //doesnt work
+        tasks.remove(index);
     }
-
 
     @Override
     public boolean insert(Task t) {
@@ -28,22 +40,22 @@ public class TaskPlanner implements TaskInterface {
     }
 
     @Override
-    public void updatePriority(int ID, Priority priority) { //doesnt work
-        tasks.get(ID).setPriority(priority);
+    public void updatePriority(int index, Priority priority) { //doesnt work
+        tasks.get(index).setPriority(priority);
     }
 
     @Override
-    public void updateCategory(int ID, Category cat) {//doesnt work
-        tasks.get(ID).setCategory(cat);
+    public void updateCategory(int index, Category cat) {//doesnt work
+        tasks.get(index).setCategory(cat);
     }
 
     @Override
-    public void updateDate(int ID, Date date) {//doesnt work
-        tasks.get(ID).setDueDate(date);
+    public void updateDate(int index, Date date) {//doesnt work
+        tasks.get(index).setDueDate(date);
     }
 
     @Override
     public List<Task> allTasks() {
-        return new LinkedList<Task>(tasks);
+        return new LinkedList<>(tasks);
     }
 }
