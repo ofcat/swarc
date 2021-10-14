@@ -30,7 +30,7 @@ public class TaskPlanner implements TaskInterface {
     }
 
     @Override
-    public void delete(int index) { //doesnt work
+    public void delete(int index) {
         tasks.remove(index);
     }
 
@@ -40,17 +40,17 @@ public class TaskPlanner implements TaskInterface {
     }
 
     @Override
-    public void updatePriority(int index, Priority priority) { //doesnt work
+    public void updatePriority(int index, Priority priority) {
         tasks.get(index).setPriority(priority);
     }
 
     @Override
-    public void updateCategory(int index, Category cat) {//doesnt work
+    public void updateCategory(int index, Category cat) {
         tasks.get(index).setCategory(cat);
     }
 
     @Override
-    public void updateDate(int index, Date date) {//doesnt work
+    public void updateDate(int index, Date date) {
         tasks.get(index).setDueDate(date);
     }
 
